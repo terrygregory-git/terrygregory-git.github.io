@@ -1,0 +1,316 @@
+/* ===================================================================
+   terrygregory.eu — site stylesheet
+   =================================================================== */
+
+:root {
+  --ink: #1d2630;
+  --muted: #5b6672;
+  --accent: #14566b;
+  --accent-soft: #eaf2f5;
+  --bg: #fbfbf9;
+  --card: #ffffff;
+  --line: #e6e6df;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Navigation ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(251, 251, 249, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.8rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--accent); text-decoration: none; }
+.nav-links a.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Layout ---------- */
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+h1, h2, h3 { font-family: var(--serif); line-height: 1.25; }
+
+h1 { font-size: 2.3rem; margin: 0 0 0.3rem; font-weight: 700; }
+
+h2 {
+  font-size: 1.45rem;
+  margin: 2.6rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+}
+h2:first-child { margin-top: 0; }
+
+h3 { font-size: 1.12rem; margin: 1.8rem 0 0.6rem; font-weight: 600; }
+
+.lede {
+  color: var(--muted);
+  font-size: 1.12rem;
+  margin: 0 0 1.2rem;
+}
+
+/* ---------- Home hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.hero-photo img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(29, 38, 48, 0.14);
+}
+
+.roles { list-style: none; padding: 0; margin: 1rem 0; }
+.roles li {
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+.roles li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Link pills ---------- */
+
+.links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.4rem 0 0;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.38rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.15s, background 0.15s;
+}
+.pill:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.pill.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.pill.primary:hover { background: #0f4356; }
+
+/* ---------- Interest chips ---------- */
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0 0; }
+.chip {
+  padding: 0.28rem 0.8rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ---------- News list ---------- */
+
+.news { list-style: none; padding: 0; margin: 0; }
+.news li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.news li:last-child { border-bottom: none; }
+.news .date {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding-top: 0.12rem;
+  white-space: nowrap;
+}
+
+/* ---------- Publications ---------- */
+
+.pub {
+  margin-bottom: 1.35rem;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--line);
+}
+.pub:hover { border-left-color: var(--accent); }
+
+.pub .title { font-weight: 600; font-size: 1.02rem; }
+.pub .authors { color: var(--muted); font-size: 0.94rem; }
+.pub .venue { font-size: 0.94rem; }
+.pub .venue em { color: var(--ink); }
+.pub .status {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 5px;
+  padding: 0.05rem 0.5rem;
+  margin-left: 0.2rem;
+}
+
+.pub-links { margin-top: 0.3rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pub-links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.14rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--card);
+}
+.pub-links a:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
+.pub details { margin-top: 0.35rem; }
+.pub details summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.pub details p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0.4rem 0 0;
+}
+
+/* ---------- Simple tables (teaching) ---------- */
+
+.entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.entry:last-child { border-bottom: none; }
+.entry .when { color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+.entry .what strong { font-weight: 600; }
+.entry .what .sub { color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- Media list ---------- */
+
+.media-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.96rem;
+}
+.media-item:last-child { border-bottom: none; }
+.media-item .date { color: var(--muted); font-size: 0.86rem; font-weight: 600; padding-top: 0.1rem; }
+.media-item .outlet { font-weight: 600; }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+}
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.6rem 1.25rem 2.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer a { color: var(--muted); text-decoration: underline; }
+.footer a:hover { color: var(--accent); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo { order: -1; max-width: 240px; }
+  h1 { font-size: 1.9rem; }
+  .news li, .entry, .media-item { grid-template-columns: 1fr; gap: 0.1rem; }
+}
